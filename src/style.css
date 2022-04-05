@@ -180,7 +180,6 @@ body {
   box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
   border-radius: 10px;
   background-color: #c4c4c400;
-  margin-left: 32%;
   margin-top: 50px;
   text-align: center;
   cursor: pointer;
@@ -196,7 +195,7 @@ body {
   box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
   border-radius: 10px;
   background-color: #c4c4c400;
-  margin-left: inherit;
+  margin-left: 32%;
   margin-top: 50px;
   text-align: center;
   cursor: pointer;
