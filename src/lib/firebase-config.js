@@ -5,7 +5,13 @@
 /* eslint-disable import/no-unresolved */
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { initializeApp, getAuth } from './firebase-imports.js';
+import { initializeApp,
+  getAuth,
+  getFirestore,
+  collection,
+  addDoc,
+  getDoc,
+} from './firebase-imports.js';
 
 // Your web app's Firebase configuration
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,3 +30,16 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db = getFirestore(app); // Save registerData collection in fireStore
+
+/*
+export const savePost = (username, post) => {
+  addDoc(collection(db, 'posts'), {
+    username,
+    post,
+  });
+};
+export const getPost = () => {
+  getDoc(collection(db, 'posts'));
+};
+*/
