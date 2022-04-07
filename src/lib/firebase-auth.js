@@ -7,8 +7,6 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  getRedirectResult,
-  signInWithRedirect,
   FacebookAuthProvider, signOut,
 } from './firebase-imports.js';
 import { onNavigate } from '../main.js';
@@ -83,31 +81,6 @@ export const googleSignIn = () => {
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
-};
-
-// Sign up with Facebook
-const providerFacebook = new FacebookAuthProvider();
-export const signUpFacebook = () => {
-  signInWithRedirect(auth, providerFacebook);
-  getRedirectResult(auth)
-    .then((result) => {
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      const credential = FacebookAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-
-      const user = result.user;
-      onNavigate('/home');
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // AuthCredential type that was used.
-      const credential = FacebookAuthProvider.credentialFromError(error);
       // ...
     });
 };

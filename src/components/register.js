@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { createNewUsers, googleSignIn, signUpFacebook } from '../lib/firebase-auth.js';
+import { createNewUsers, googleSignIn } from '../lib/firebase-auth.js';
 // import { async } from 'regenerator-runtime';
 
 export const register = () => {
@@ -41,7 +41,6 @@ export const register = () => {
   iconF.setAttribute('src', './assets/facebook.png');
   iconF.addEventListener('click', (e) => {
     e.preventDefault();
-    signUpFacebook();
   });
 
   // window.addEventListener('DOMContentLoaded', () => {
