@@ -1,6 +1,9 @@
 import {
   collection,
   addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
   query,
   orderBy,
   onSnapshot,
@@ -13,6 +16,7 @@ export const savePost = (post) => {
   addDoc(collection(db, 'posts'), {
     username: user.displayName,
     photo: user.photoURL,
+    uid: user.uid,
     date,
     post,
   });
@@ -51,4 +55,10 @@ export async function showPosts() {
       renderPost(postDocs);
     });
   });
+}
+
+//----DELETE POST----//
+
+export async function deletePosts() {
+
 }
