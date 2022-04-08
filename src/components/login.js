@@ -36,9 +36,6 @@ export const login = () => {
     googleSignIn();
   });
 
-  const iconF = document.createElement('img');
-  iconF.setAttribute('src', './assets/facebook.png');
-
   const infoForm = document.createElement('form');
   infoForm.className = 'formContainer';
 
@@ -119,7 +116,7 @@ export const login = () => {
   });
 
   header.append(imgArrowBack, titles);
-  containerIcons.append(iconG, iconF);
+  containerIcons.append(iconG);
   infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage);
   divFooter.append(labelHaveAcc, btnRefJoinUs);
   shootInSection.append(header, logInWith, containerIcons, infoForm, btnInfoShootIn, divFooter);

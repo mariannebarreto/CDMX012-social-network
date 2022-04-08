@@ -41,6 +41,7 @@ export const register = () => {
   iconF.setAttribute('src', './assets/facebook.png');
   iconF.addEventListener('click', (e) => {
     e.preventDefault();
+    facebookLogin();
   });
 
   // window.addEventListener('DOMContentLoaded', () => {

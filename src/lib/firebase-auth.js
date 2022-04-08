@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable import/named */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-cycle */
@@ -7,7 +8,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  FacebookAuthProvider, signOut,
+   signOut,
 } from './firebase-imports.js';
 import { onNavigate } from '../main.js';
 
