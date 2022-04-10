@@ -1,16 +1,41 @@
 import {
   collection,
-  addDoc,
-  /*getDocs,
-  deleteDoc,
-  doc,*/
+  /* addDoc,
+  getDocs, */
+  setDoc,
+  doc,
   query,
-  orderBy,
   onSnapshot,
+  orderBy,
 } from './firebase-imports.js';
 import { auth, db } from './firebase-config.js';
+import { deletePost } from './firebase-deletePost.js';
 
-export const savePost = (post) => {
+export async function saveNewPost() {
+  const user = auth.currentUser;
+  const date = new Date();
+  const post = document.getElementById('postText').value;
+
+  try {
+    // crea un nuevo documento en la colección
+    const docRef = doc(collection(db, 'posts'));
+    const dataPost = {
+      idDocument: docRef.id, // add document id
+      uid: user.uid,
+      username: user.displayName,
+      photo: user.photoURL,
+      post,
+      date,
+
+    };
+
+    await setDoc(docRef, dataPost);
+  } catch (e) {
+    console.error('Error adding document: ', e);
+  }
+}
+
+/* export const savePost = (post) => {
   const user = auth.currentUser;
   const date = new Date();
   addDoc(collection(db, 'posts'), {
@@ -20,7 +45,7 @@ export const savePost = (post) => {
     date,
     post,
   });
-};
+}; */
 
 const renderPost = (data) => {
   const postFeedNews = document.getElementById('postFeed');
@@ -41,6 +66,12 @@ const renderPost = (data) => {
   const trash = document.createElement('img');
   trash.setAttribute('src', './assets/trash.png');
   trash.className = 'trash';
+  trash.id = 'deleteBtn';
+  trash.addEventListener('click', () => {
+    const trashDelete = document.getElementById('deleteBtn');
+    deletePost(trashDelete);
+  });
+
   post.append(name, photo, postText, likes, trash);
   postFeedNews.append(post);
   return postFeedNews;

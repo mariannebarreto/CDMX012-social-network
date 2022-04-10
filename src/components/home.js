@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* ------ AQUI VAN ELEMENTOS PARA CREAR POST------ */
 import { userInfo } from '../lib/firebase-users.js';
-import { savePost, showPosts } from '../lib/firebase-posts.js';
+import { saveNewPost, showPosts } from '../lib/firebase-posts.js';
 import { logOut } from '../lib/firebase-auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -46,7 +46,7 @@ export const home = () => {
   submitPost.textContent = 'Post';
   submitPost.addEventListener('click', () => {
     const post = document.getElementById('postText').value;
-    savePost(post);
+    saveNewPost(post);
   });
 
   // post feed
