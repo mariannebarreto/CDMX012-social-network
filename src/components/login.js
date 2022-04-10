@@ -103,7 +103,7 @@ export const login = () => {
   divFooter.className = 'containerFooter';
 
   const labelHaveAcc = document.createElement('footer');
-  labelHaveAcc.className = 'sign';
+  labelHaveAcc.className = 'signFooter';
   labelHaveAcc.textContent = 'Dont have an account?';
 
   const btnRefJoinUs = document.createElement('button');

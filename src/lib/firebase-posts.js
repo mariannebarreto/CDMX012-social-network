@@ -1,9 +1,9 @@
 import {
   collection,
   addDoc,
-  getDocs,
+  /*getDocs,
   deleteDoc,
-  doc,
+  doc,*/
   query,
   orderBy,
   onSnapshot,
@@ -55,10 +55,4 @@ export async function showPosts() {
       renderPost(postDocs);
     });
   });
-}
-
-//----DELETE POST----//
-
-export async function deletePosts() {
-
 }
